@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yes, Sir.</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+            font-family: 'Courier New', monospace;
+            color: #00ff00;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .prompt {
+            font-size: 1.2rem;
+            opacity: 0.7;
+            margin-bottom: 2rem;
+            animation: fadeIn 1s ease-in;
+        }
+
+        .cursor::after {
+            content: '▋';
+            animation: blink 1s infinite;
+        }
+
+        h1 {
+            font-size: clamp(3rem, 10vw, 8rem);
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+            animation: glitch 3s infinite;
+        }
+
+        .subtitle {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            opacity: 0;
+            animation: fadeIn 2s ease-in 1.5s forwards;
+            margin-bottom: 3rem;
+        }
+
+        .links {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeIn 2s ease-in 2.5s forwards;
+        }
+
+        .links a {
+            color: #00ff00;
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            border: 2px solid #00ff00;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .links a:hover {
+            background: #00ff00;
+            color: #0f0f0f;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+            transform: translateY(-2px);
+        }
+
+        @keyframes blink {
+            0%, 49% { opacity: 1; }
+            50%, 100% { opacity: 0; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 0.7; transform: translateY(0); }
+        }
+
+        @keyframes glitch {
+            0%, 90%, 100% {
+                text-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+            }
+            93% {
+                text-shadow:
+                    -2px 0 rgba(255, 0, 0, 0.7),
+                    2px 0 rgba(0, 255, 255, 0.7),
+                    0 0 20px rgba(0, 255, 0, 0.5);
+            }
+            95% {
+                text-shadow:
+                    2px 0 rgba(255, 0, 0, 0.7),
+                    -2px 0 rgba(0, 255, 255, 0.7),
+                    0 0 20px rgba(0, 255, 0, 0.5);
+            }
+        }
+
+        .matrix {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.05;
+            z-index: -1;
+        }
+
+        @media (max-width: 768px) {
+            .prompt { font-size: 0.9rem; }
+            .links { gap: 1rem; }
+            .links a { padding: 0.6rem 1.2rem; font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+    <canvas class="matrix"></canvas>
+
+    <div class="container">
+        <div class="prompt">&gt; <span class="cursor">당신의 지시를 기다립니다</span></div>
+
+        <h1>Yes,Sir.</h1>
+
+        <div class="subtitle">개발자 | 여러분의 아이디어를 코드로 구현합니다</div>
+
+        <div class="links">
+            <a href="https://github.com/sanghaklee" target="_blank">GitHub</a>
+            <a href="mailto:code.ryan.lee@email.com">Contact</a>
+        </div>
+    </div>
+
+    <script>
+        // Matrix rain effect
+        const canvas = document.querySelector('.matrix');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
+        const fontSize = 14;
+        const columns = canvas.width / fontSize;
+        const drops = Array(Math.floor(columns)).fill(1);
+
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#00ff00';
+            ctx.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = chars[Math.floor(Math.random() * chars.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        setInterval(drawMatrix, 50);
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+</html>
