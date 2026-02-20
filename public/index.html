@@ -1,121 +1,113 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#000000">
+    <meta name="description"
+        content="이상학(SangHak Lee) 개발자 포트폴리오. Linux 시스템, 네트워크, 웹 개발 분야의 오픈소스 프로젝트를 소개합니다. iptables 시각화, 웹 OG 태그 분석, 네트워크 포트 레퍼런스 등 다양한 개발자 도구를 무료로 제공합니다.">
+    <meta name="keywords" content="개발자 포트폴리오, iptables, 방화벽 시각화, 웹 개발, Linux, 네트워크, 오픈소스, TypeScript, Next.js">
+    <meta name="author" content="SangHak Lee">
+    <meta name="robots" content="index, follow">
     <meta name="google-adsense-account" content="ca-pub-2062632855078003">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yessir.dev/">
+    <meta property="og:title" content="Yes, Sir. — SangHak Lee 개발자 포트폴리오">
+    <meta property="og:description"
+        content="Linux 시스템, 네트워크, 웹 개발 분야의 오픈소스 개발자 도구 모음. 무료로 사용할 수 있는 실용적인 개발자 툴들을 제공합니다.">
+    <meta property="og:site_name" content="yessir.dev">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Yes, Sir. — SangHak Lee 개발자 포트폴리오">
+    <meta name="twitter:description" content="Linux 시스템, 네트워크, 웹 개발 분야의 오픈소스 개발자 도구 모음.">
+
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <!-- Google tag (gtag.js) -->
-    <title>Yes, Sir.</title>
+    <link rel="canonical" href="https://yessir.dev/">
+
+    <title>Yes, Sir. — SangHak Lee 개발자 포트폴리오</title>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "SangHak Lee",
+      "alternateName": "이상학",
+      "url": "https://yessir.dev",
+      "sameAs": ["https://github.com/sanghaklee"],
+      "jobTitle": "Software Developer",
+      "knowsAbout": ["Linux", "iptables", "TypeScript", "Next.js", "Network Engineering", "Web Development"],
+      "description": "Linux 시스템 및 네트워크, 웹 개발 분야를 다루는 소프트웨어 개발자."
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Yes, Sir.",
+      "url": "https://yessir.dev",
+      "description": "SangHak Lee의 개발자 포트폴리오 및 오픈소스 개발자 도구 모음 사이트"
+    }
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-T26H97X8');</script>
+    <!-- End Google Tag Manager -->
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HNLJ14CN0C"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-HNLJ14CN0C');
+    </script>
+
     <style>
+        :root {
+            --green: #00ff00;
+            --green-dim: rgba(0, 255, 0, 0.6);
+            --green-faint: rgba(0, 255, 0, 0.08);
+            --bg: #0a0a0a;
+            --bg-card: #111111;
+            --bg-card-hover: #161616;
+            --border: rgba(0, 255, 0, 0.2);
+            --border-hover: rgba(0, 255, 0, 0.5);
+            --text: #c8c8c8;
+            --text-dim: #808080;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
-            font-family: 'Courier New', monospace;
-            color: #00ff00;
-            overflow: hidden;
+            background: var(--bg);
+            font-family: 'Courier New', 'Consolas', monospace;
+            color: var(--text);
+            line-height: 1.7;
         }
 
-        .container {
-            text-align: center;
-            padding: 2rem;
-            position: relative;
-        }
-
-        .prompt {
-            font-size: 1.8rem;
-            opacity: 0.7;
-            margin-bottom: 2rem;
-            animation: fadeIn 1s ease-in;
-        }
-
-        .cursor::after {
-            content: '▋';
-            animation: blink 1s infinite;
-        }
-
-        h1 {
-            font-size: clamp(3.6rem, 12vw, 9.6rem);
-            font-weight: bold;
-            margin-bottom: 1.5rem;
-            text-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
-            animation: glitch 3s infinite;
-        }
-
-        .subtitle {
-            font-size: clamp(1.2rem, 3.6vw, 1.8rem);
-            opacity: 0;
-            animation: fadeIn 2s ease-in 1.5s forwards;
-            margin-bottom: 3rem;
-        }
-
-        .links {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            opacity: 0;
-            animation: fadeIn 2s ease-in 2.5s forwards;
-        }
-
-        .links a {
-            color: #00ff00;
-            text-decoration: none;
-            padding: 0.8rem 1.5rem;
-            border: 2px solid #00ff00;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-            font-size: 1.2rem;
-        }
-
-        .links a:hover {
-            background: #00ff00;
-            color: #0f0f0f;
-            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
-            transform: translateY(-2px);
-        }
-
-        @keyframes blink {
-            0%, 49% { opacity: 1; }
-            50%, 100% { opacity: 0; }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 0.7; transform: translateY(0); }
-        }
-
-        @keyframes glitch {
-            0%, 90%, 100% {
-                text-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
-            }
-            93% {
-                text-shadow:
-                    -2px 0 rgba(255, 0, 0, 0.7),
-                    2px 0 rgba(0, 255, 255, 0.7),
-                    0 0 20px rgba(0, 255, 0, 0.5);
-            }
-            95% {
-                text-shadow:
-                    2px 0 rgba(255, 0, 0, 0.7),
-                    -2px 0 rgba(0, 255, 255, 0.7),
-                    0 0 20px rgba(0, 255, 0, 0.5);
-            }
-        }
-
+        /* ===== MATRIX CANVAS ===== */
         .matrix {
             position: fixed;
             top: 0;
@@ -123,92 +115,1129 @@
             width: 100%;
             height: 100%;
             pointer-events: none;
-            opacity: 0.2;
-            z-index: -1;
+            opacity: 0.07;
+            z-index: 0;
         }
 
-        @media (max-width: 768px) {
-            .prompt { font-size: 1.08rem; }
-            .links { gap: 1rem; }
-            .links a { padding: 0.6rem 1.2rem; font-size: 1.08rem; }
+        /* ===== NAV ===== */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(10, 10, 10, 0.92);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border);
+            padding: 0.9rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            color: var(--green);
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            letter-spacing: 0.05em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.8rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 0.88rem;
+            letter-spacing: 0.05em;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--green);
+        }
+
+        /* ===== SECTIONS ===== */
+        section,
+        header.hero {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===== HERO ===== */
+        header.hero {
+            min-height: 88vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .hero-inner {
+            max-width: 760px;
+        }
+
+        .prompt {
+            font-size: 1rem;
+            opacity: 0.6;
+            margin-bottom: 1.8rem;
+            animation: fadeUp 0.8s ease both;
+        }
+
+        .cursor::after {
+            content: '▋';
+            animation: blink 1s infinite;
+        }
+
+        h1.site-title {
+            font-size: clamp(3.2rem, 11vw, 8rem);
+            font-weight: bold;
+            color: var(--green);
+            text-shadow: 0 0 30px rgba(0, 255, 0, 0.4);
+            margin-bottom: 1.2rem;
+            animation: glitch 4s infinite, fadeUp 0.8s ease 0.1s both;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-tagline {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            color: var(--text-dim);
+            margin-bottom: 1.5rem;
+            animation: fadeUp 0.8s ease 0.3s both;
+        }
+
+        .hero-desc {
+            font-size: 1rem;
+            color: var(--text);
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            animation: fadeUp 0.8s ease 0.5s both;
+            opacity: 0;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeUp 0.8s ease 0.7s both;
+            opacity: 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.6rem;
+            border: 1.5px solid var(--green);
+            color: var(--green);
+            text-decoration: none;
+            font-family: inherit;
+            font-size: 0.9rem;
+            border-radius: 4px;
+            transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.15s;
+            cursor: pointer;
+            background: transparent;
+        }
+
+        .btn:hover {
+            background: var(--green);
+            color: #0a0a0a;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.35);
+            transform: translateY(-2px);
+        }
+
+        .btn.secondary {
+            border-color: var(--border);
+            color: var(--text-dim);
+        }
+
+        .btn.secondary:hover {
+            background: var(--border-hover);
+            color: var(--green);
+            border-color: var(--border-hover);
+        }
+
+        /* ===== SECTION COMMON ===== */
+        .section-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .section-label {
+            font-size: 0.78rem;
+            letter-spacing: 0.15em;
+            color: var(--green);
+            text-transform: uppercase;
+            margin-bottom: 0.6rem;
+            opacity: 0.8;
+        }
+
+        h2.section-title {
+            font-size: clamp(1.6rem, 4vw, 2.2rem);
+            color: #e8e8e8;
+            margin-bottom: 0.8rem;
+            font-weight: bold;
+        }
+
+        .section-sep {
+            width: 48px;
+            height: 2px;
+            background: var(--green);
+            margin-bottom: 2.5rem;
+            opacity: 0.6;
+        }
+
+
+        /* ===== CAREER ===== */
+        #career {
+            border-top: 1px solid var(--border);
+        }
+
+        .career-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.6rem;
+        }
+
+        .career-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem 1.8rem;
+        }
+
+        .career-header {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 0.7rem;
+        }
+
+        .career-title-group {
+            display: flex;
+            align-items: baseline;
+            gap: 0.4rem;
+            flex-wrap: wrap;
+        }
+
+        .career-role {
+            font-size: 1rem;
+            color: #e8e8e8;
+            font-weight: bold;
+        }
+
+        .career-sep {
+            color: var(--green);
+            opacity: 0.6;
+            font-size: 0.9rem;
+        }
+
+        .career-company {
+            font-size: 0.95rem;
+            color: var(--green);
+            text-decoration: none;
+            opacity: 0.9;
+            transition: opacity 0.2s;
+        }
+
+        .career-company:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        .career-period {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            white-space: nowrap;
+            font-family: monospace;
+        }
+
+        .career-desc {
+            font-size: 0.88rem;
+            color: var(--text);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .career-link {
+            color: var(--green);
+            text-decoration: none;
+            opacity: 0.7;
+            font-size: 0.85em;
+        }
+
+        .career-link:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        .career-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 0.7rem;
+        }
+
+        .career-role-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.7rem;
+            flex-wrap: wrap;
+        }
+
+        .role-badge {
+            font-size: 0.72rem;
+            padding: 0.2rem 0.6rem;
+            border: 1px solid var(--green);
+            border-radius: 3px;
+            color: var(--green);
+            opacity: 0.8;
+            white-space: nowrap;
+            margin-top: 0.15rem;
+        }
+
+        /* ===== BLOG ===== */
+        #blog {
+            border-top: 1px solid var(--border);
+            background: rgba(0, 255, 0, 0.012);
+        }
+
+        .blog-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            margin-bottom: 1.8rem;
+        }
+
+        .blog-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border);
+            text-decoration: none;
+            color: var(--text);
+            transition: color 0.15s;
+        }
+
+        .blog-item:first-child {
+            border-top: 1px solid var(--border);
+        }
+
+        .blog-item:hover {
+            color: var(--green);
+        }
+
+        .blog-item:hover .blog-arrow {
+            transform: translateX(4px);
+            color: var(--green);
+        }
+
+        .blog-arrow {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            flex-shrink: 0;
+            transition: transform 0.15s, color 0.15s;
+        }
+
+        .blog-title {
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .blog-more {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        /* ===== PROJECTS ===== */
+
+        #projects {
+            border-top: 1px solid var(--border);
+            background: rgba(0, 255, 0, 0.012);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 1.4rem;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.6rem;
+            transition: border-color 0.2s, background 0.2s, transform 0.2s;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .project-card:hover {
+            border-color: var(--border-hover);
+            background: var(--bg-card-hover);
+            transform: translateY(-3px);
+        }
+
+        .project-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .project-icon {
+            font-size: 1.6rem;
+            line-height: 1;
+        }
+
+        .project-link-icon {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.2s;
+            flex-shrink: 0;
+        }
+
+        .project-link-icon:hover {
+            color: var(--green);
+        }
+
+        .project-card h3 {
+            font-size: 1.05rem;
+            color: #e8e8e8;
+            margin-bottom: 0.1rem;
+        }
+
+        .project-card .project-url {
+            font-size: 0.78rem;
+            color: var(--green);
+            opacity: 0.7;
+            text-decoration: none;
+        }
+
+        .project-card p {
+            color: var(--text);
+            font-size: 0.88rem;
+            line-height: 1.75;
+            flex: 1;
+        }
+
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-top: 0.2rem;
+        }
+
+        .tag {
+            font-size: 0.72rem;
+            padding: 0.2rem 0.6rem;
+            border: 1px solid var(--border);
+            border-radius: 3px;
+            color: var(--text-dim);
+            letter-spacing: 0.05em;
+        }
+
+        /* ===== SKILLS ===== */
+        #skills {
+            border-top: 1px solid var(--border);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1.2rem;
+        }
+
+        .skill-group {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 1.2rem 1.4rem;
+        }
+
+        .skill-group h3 {
+            font-size: 0.8rem;
+            color: var(--green);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.8rem;
+            opacity: 0.85;
+        }
+
+        .skill-group ul {
+            list-style: none;
+        }
+
+        .skill-group li {
+            font-size: 0.88rem;
+            color: var(--text);
+            padding: 0.3rem 0;
+            border-bottom: 1px solid rgba(0, 255, 0, 0.06);
+        }
+
+        .skill-group li:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .skill-group li::before {
+            content: '> ';
+            color: var(--green);
+            opacity: 0.6;
+        }
+
+        /* ===== TECH TIPS ===== */
+        #tech-tips {
+            border-top: 1px solid var(--border);
+            background: rgba(0, 255, 0, 0.012);
+        }
+
+        .tips-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .tip-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--green);
+            border-radius: 0 6px 6px 0;
+            padding: 1.3rem 1.5rem;
+        }
+
+        .tip-card h3 {
+            font-size: 0.95rem;
+            color: #e0e0e0;
+            margin-bottom: 0.5rem;
+        }
+
+        .tip-card p {
+            font-size: 0.88rem;
+            color: var(--text);
+            line-height: 1.75;
+        }
+
+        .tip-card code {
+            background: rgba(0, 255, 0, 0.08);
+            border: 1px solid rgba(0, 255, 0, 0.2);
+            border-radius: 3px;
+            padding: 0.1em 0.4em;
+            font-family: inherit;
+            font-size: 0.85em;
+            color: var(--green);
+        }
+
+        .tip-meta {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            margin-top: 0.6rem;
+            letter-spacing: 0.05em;
+        }
+
+        /* ===== CONTACT ===== */
+        #contact {
+            border-top: 1px solid var(--border);
+        }
+
+        .contact-inner {
+            text-align: center;
+            max-width: 540px;
+            margin: 0 auto;
+        }
+
+        .contact-inner p {
+            color: var(--text);
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            border-top: 1px solid var(--border);
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            position: relative;
+            z-index: 1;
+        }
+
+        footer a {
+            color: var(--text-dim);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        footer a:hover {
+            color: var(--green);
+        }
+
+        footer .footer-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-bottom: 0.8rem;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes blink {
+
+            0%,
+            49% {
+                opacity: 1;
+            }
+
+            50%,
+            100% {
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(14px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes glitch {
+
+            0%,
+            88%,
+            100% {
+                text-shadow: 0 0 30px rgba(0, 255, 0, 0.4);
+            }
+
+            92% {
+                text-shadow:
+                    -3px 0 rgba(255, 0, 0, 0.6),
+                    3px 0 rgba(0, 255, 255, 0.6),
+                    0 0 20px rgba(0, 255, 0, 0.4);
+            }
+
+            95% {
+                text-shadow:
+                    3px 0 rgba(255, 0, 0, 0.6),
+                    -3px 0 rgba(0, 255, 255, 0.6),
+                    0 0 20px rgba(0, 255, 0, 0.4);
+            }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        /* ===== HAMBURGER ===== */
+        .nav-hamburger {
+            display: none;
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--green);
+            font-family: inherit;
+            font-size: 1.1rem;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .nav-hamburger:hover {
+            background: var(--green-faint);
+        }
+
+        @media (max-width: 640px) {
+            nav {
+                padding: 0.75rem 1.2rem;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+
+            .nav-hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                gap: 0;
+                border-top: 1px solid var(--border);
+                padding-top: 0.6rem;
+                margin-top: 0.3rem;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links li {
+                border-bottom: 1px solid rgba(0, 255, 0, 0.06);
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 0.55rem 0;
+                font-size: 0.88rem;
+            }
+
+            .section-inner {
+                padding: 3.5rem 1.2rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
-
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-T26H97X8');</script>
-    <!-- End Google Tag Manager -->
-
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HNLJ14CN0C"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-HNLJ14CN0C');
-    </script>
 </head>
+
 <body>
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T26H97X8"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T26H97X8" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    <canvas class="matrix"></canvas>
+    <canvas class="matrix" aria-hidden="true"></canvas>
 
-    <div class="container">
-        <div class="prompt">&gt; <span class="cursor">The code has you...</span></div>
+    <!-- ===== NAV ===== -->
+    <nav>
+        <a href="#" class="nav-logo">&gt; yessir.dev</a>
+        <button class="nav-hamburger" id="navToggle" aria-label="메뉴 열기/닫기" aria-expanded="false">☰</button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#web">Web</a></li>
+            <li><a href="#tools">Tools</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-        <h1>Yes,Sir.</h1>
+    <!-- ===== HERO ===== -->
+    <header class="hero">
+        <div class="hero-inner">
+            <div class="prompt">&gt; <span class="cursor">The code has you...</span></div>
 
-        <div class="subtitle">Standing by for your command.</div>
+            <h1 class="site-title">Yes, Sir.</h1>
 
-        <div class="links">
-            <a href="https://github.com/sanghaklee" target="_blank">GitHub</a>
-            <a href="mailto:code.ryan.lee@email.com">Contact</a>
+
+
+            <div class="hero-cta">
+                <a href="#web" class="btn">프로젝트 보기</a>
+                <a href="https://github.com/sanghaklee" target="_blank" rel="noopener noreferrer"
+                    class="btn secondary">GitHub</a>
+            </div>
         </div>
-    </div>
+    </header>
+
+
+    <!-- ===== WEB PROJECTS ===== -->
+    <section id="web">
+        <div class="section-inner">
+            <div class="section-label">// web</div>
+            <h2 class="section-title">Web</h2>
+            <div class="section-sep"></div>
+
+            <div class="projects-grid">
+
+                <!-- iptables Visualizer -->
+                <article class="project-card">
+                    <div class="project-header">
+                        <div>
+                            <div class="project-icon">🔥</div>
+                        </div>
+                        <a href="https://iptables.yessir.dev/" target="_blank" rel="noopener noreferrer"
+                            class="project-link-icon" aria-label="iptables Visualizer 바로가기">↗</a>
+                    </div>
+                    <div>
+                        <h3>iptables Visualizer</h3>
+                        <a href="https://iptables.yessir.dev/" class="project-url" target="_blank"
+                            rel="noopener noreferrer">iptables.yessir.dev</a>
+                    </div>
+                    <p>
+                        Linux 방화벽 도구인 <strong>iptables</strong>의 복잡한 규칙을 시각적 다이어그램으로 변환해 주는 무료 온라인 도구입니다.
+                        <code>iptables-save</code> 명령의 출력 결과를 붙여 넣으면, CHAIN 간의 관계와 패킷 흐름을 한눈에 파악할 수 있는 인터랙티브 다이어그램을
+                        생성합니다.
+                        서버 방화벽 설정 감사, 규칙 디버깅, 팀원 공유 등에 유용합니다.
+                    </p>
+                    <div class="tag-list">
+                        <span class="tag">Linux</span>
+                        <span class="tag">Networking</span>
+                        <span class="tag">Security</span>
+                        <span class="tag">Visualization</span>
+                    </div>
+                </article>
+
+                <!-- well-known Port Explorer -->
+                <article class="project-card">
+                    <div class="project-header">
+                        <div>
+                            <div class="project-icon">🌐</div>
+                        </div>
+                        <a href="https://well-known.yessir.dev/" target="_blank" rel="noopener noreferrer"
+                            class="project-link-icon" aria-label="Well-Known Port Explorer 바로가기">↗</a>
+                    </div>
+                    <div>
+                        <h3>Well-Known Port Explorer</h3>
+                        <a href="https://well-known.yessir.dev/" class="project-url" target="_blank"
+                            rel="noopener noreferrer">well-known.yessir.dev</a>
+                    </div>
+                    <p>
+                        개발자를 위한 <strong>네트워크 포트 번호 레퍼런스</strong> 사이트입니다. 0~1023번의 Well-Known 포트와 주요 등록 포트를 서비스명,
+                        프로토콜(TCP/UDP), 보안 상태, 카테고리와 함께 검색할 수 있습니다.
+                        SSH(22), HTTP(80), HTTPS(443) 같은 일반적인 포트부터 덜 알려진 서비스 포트까지, 빠르게 조회하고 팀에 공유할 수 있습니다.
+                    </p>
+                    <div class="tag-list">
+                        <span class="tag">Networking</span>
+                        <span class="tag">Reference</span>
+                        <span class="tag">DevTool</span>
+                    </div>
+                </article>
+
+                <!-- Makeup WEB -->
+                <article class="project-card">
+                    <div class="project-header">
+                        <div>
+                            <div class="project-icon">💄</div>
+                        </div>
+                        <a href="https://makeup-web.yessir.dev/" target="_blank" rel="noopener noreferrer"
+                            class="project-link-icon" aria-label="Makeup WEB 바로가기">↗</a>
+                    </div>
+                    <div>
+                        <h3>Makeup WEB</h3>
+                        <a href="https://makeup-web.yessir.dev/" class="project-url" target="_blank"
+                            rel="noopener noreferrer">makeup-web.yessir.dev</a>
+                    </div>
+                    <p>
+                        웹사이트의 <strong>Open Graph 태그, 파비콘, SEO 메타 태그</strong>를 한 번에 분석·미리 보기 할 수 있는 도구입니다.
+                        URL을 입력하면 Twitter 카드, Facebook 공유 미리 보기, 검색 결과 스니펫이 어떻게 표시되는지 즉시 확인할 수 있습니다.
+                        블로그 발행 전, SNS 공유 전 빠른 체크에 유용합니다.
+                    </p>
+                    <div class="tag-list">
+                        <span class="tag">SEO</span>
+                        <span class="tag">OG Tags</span>
+                        <span class="tag">Web Dev</span>
+                        <span class="tag">DevTool</span>
+                    </div>
+                </article>
+
+                <!-- 회식투표 -->
+                <article class="project-card">
+                    <div class="project-header">
+                        <div>
+                            <div class="project-icon">🍻</div>
+                        </div>
+                        <a href="https://poll.yessir.dev/" target="_blank" rel="noopener noreferrer"
+                            class="project-link-icon" aria-label="회식투표 바로가기">↗</a>
+                    </div>
+                    <div>
+                        <h3>회식투표 (Hoesik Poll)</h3>
+                        <a href="https://poll.yessir.dev/" class="project-url" target="_blank"
+                            rel="noopener noreferrer">poll.yessir.dev</a>
+                    </div>
+                    <p>
+                        팀 <strong>회식 일정을 투표로 정하는 웹 앱</strong>입니다. 날짜별로 투표 항목을 추가하고, 링크를 팀원에게 공유하면 각자 편한 날짜를 선택할 수 있습니다.
+                        별도의 회원가입 없이 바로 사용 가능하며, 결과를 집계해 가장 많은 표를 받은 날짜를 시각적으로 표시합니다.
+                        Where2meet, Doodle의 국내 회식 특화 버전입니다.
+                    </p>
+                    <div class="tag-list">
+                        <span class="tag">한국어</span>
+                        <span class="tag">Scheduling</span>
+                        <span class="tag">Web App</span>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TOOLS ===== -->
+    <section id="tools">
+        <div class="section-inner">
+            <div class="section-label">// tools</div>
+            <h2 class="section-title">Tools</h2>
+            <div class="section-sep"></div>
+
+            <div class="projects-grid">
+
+                <!-- iptables-graph -->
+                <article class="project-card">
+                    <div class="project-header">
+                        <div>
+                            <div class="project-icon">🔥</div>
+                        </div>
+                        <a href="https://github.com/SangHakLee/iptables-graph" target="_blank" rel="noopener noreferrer"
+                            class="project-link-icon" aria-label="iptables-graph GitHub">↗</a>
+                    </div>
+                    <div>
+                        <h3>iptables-graph</h3>
+                        <a href="https://github.com/SangHakLee/iptables-graph" class="project-url" target="_blank"
+                            rel="noopener noreferrer">github.com/SangHakLee/iptables-graph</a>
+                    </div>
+                    <p>
+                        <code>iptables-save</code> 출력을 <strong>Graphviz 다이어그램</strong>으로 변환하는 CLI 도구.
+                        DOT, SVG, PNG 포맷으로 패킷 흐름을 시각화합니다. Docker 또는 PyPI로 설치 가능합니다.
+                    </p>
+                    <div class="tag-list">
+                        <span class="tag">Python</span>
+                        <span class="tag">Docker</span>
+                        <span class="tag">iptables</span>
+                        <span class="tag">Graphviz</span>
+                    </div>
+                </article>
+
+                <!-- subnet-overlap -->
+                <article class="project-card">
+                    <div class="project-header">
+                        <div>
+                            <div class="project-icon">📡</div>
+                        </div>
+                        <a href="https://github.com/SangHakLee/subnet-overlap" target="_blank" rel="noopener noreferrer"
+                            class="project-link-icon" aria-label="subnet-overlap GitHub">↗</a>
+                    </div>
+                    <div>
+                        <h3>subnet-overlap</h3>
+                        <a href="https://github.com/SangHakLee/subnet-overlap" class="project-url" target="_blank"
+                            rel="noopener noreferrer">github.com/SangHakLee/subnet-overlap</a>
+                    </div>
+                    <p>
+                        CIDR 다중 대역의 <strong>여지 충돌 여부를 확인하는 npm 패키지</strong>.
+                        Node.js, TypeScript, 브라우저 환경을 모두 지원하며 AWS VPC 설계 등 네트워크 설계 시 유용합니다.
+                    </p>
+                    <div class="tag-list">
+                        <span class="tag">Node.js</span>
+                        <span class="tag">TypeScript</span>
+                        <span class="tag">Networking</span>
+                        <span class="tag">npm</span>
+                    </div>
+                </article>
+
+                <!-- swagger-express-jsdoc -->
+                <article class="project-card">
+                    <div class="project-header">
+                        <div>
+                            <div class="project-icon">💬</div>
+                        </div>
+                        <a href="https://github.com/SangHakLee/swagger-express-jsdoc" target="_blank"
+                            rel="noopener noreferrer" class="project-link-icon"
+                            aria-label="swagger-express-jsdoc GitHub">↗</a>
+                    </div>
+                    <div>
+                        <h3>swagger-express-jsdoc</h3>
+                        <a href="https://github.com/SangHakLee/swagger-express-jsdoc" class="project-url"
+                            target="_blank" rel="noopener noreferrer">github.com/SangHakLee/swagger-express-jsdoc</a>
+                    </div>
+                    <p>
+                        Express.js에 <strong>JSDoc 주석 기반 Swagger UI를 간단히 통합</strong>하는 보일러플레이트.
+                        별도의 YAML/JSON 파일 없이 코드 주석만으로 API 문서를 자동 생성합니다.
+                    </p>
+                    <div class="tag-list">
+                        <span class="tag">Node.js</span>
+                        <span class="tag">Express</span>
+                        <span class="tag">Swagger</span>
+                        <span class="tag">JSDoc</span>
+                    </div>
+                </article>
+
+                <!-- ncc -->
+                <article class="project-card">
+                    <div class="project-header">
+                        <div>
+                            <div class="project-icon">🔌</div>
+                        </div>
+                        <a href="https://github.com/SangHakLee/ncc" target="_blank" rel="noopener noreferrer"
+                            class="project-link-icon" aria-label="ncc GitHub">↗</a>
+                    </div>
+                    <div>
+                        <h3>ncc (Network Connection Checker)</h3>
+                        <a href="https://github.com/SangHakLee/ncc" class="project-url" target="_blank"
+                            rel="noopener noreferrer">github.com/SangHakLee/ncc</a>
+                    </div>
+                    <p>
+                        HTTP/HTTPS URL 및 TCP IP:PORT 연결 상태를 일괄 확인하는 <strong>CLI 네트워크 진단 도구</strong>.
+                        Docker 및 .env 파일을 지원하며 다수의 엔드포인트를 한 번에 점검할 수 있습니다.
+                    </p>
+                    <div class="tag-list">
+                        <span class="tag">Node.js</span>
+                        <span class="tag">Docker</span>
+                        <span class="tag">Networking</span>
+                        <span class="tag">CLI</span>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ===== BLOG ===== -->
+    <section id="blog">
+        <div class="section-inner">
+            <div class="section-label">// blog</div>
+            <h2 class="section-title">
+                <a href="https://sanghaklee.tistory.com" target="_blank" rel="noopener noreferrer"
+                    style="color:var(--green);text-decoration:none;opacity:0.9;" onmouseover="this.style.opacity='1'"
+                    onmouseout="this.style.opacity='0.9'">sanghaklee.tistory.com</a>
+            </h2>
+            <div class="section-sep"></div>
+
+            <div class="blog-list">
+                <a href="https://sanghaklee.tistory.com/77" target="_blank" rel="noopener noreferrer" class="blog-item">
+                    <span class="blog-arrow">→</span>
+                    <span class="blog-title">[리눅스] 소켓은 파일이다?! Everything is a file</span>
+                </a>
+                <a href="https://sanghaklee.tistory.com/76" target="_blank" rel="noopener noreferrer" class="blog-item">
+                    <span class="blog-arrow">→</span>
+                    <span class="blog-title">2025 CPPG 46회차 합격 후기, 공부법 with NotebookLM</span>
+                </a>
+                <a href="https://sanghaklee.tistory.com/75" target="_blank" rel="noopener noreferrer" class="blog-item">
+                    <span class="blog-arrow">→</span>
+                    <span class="blog-title">[Python] the virtual environment was not created successfully because
+                        ensurepip is not available.</span>
+                </a>
+                <a href="https://sanghaklee.tistory.com/74" target="_blank" rel="noopener noreferrer" class="blog-item">
+                    <span class="blog-arrow">→</span>
+                    <span class="blog-title">[Java / JUnit4] log4j:WARN No appenders could be found for logger</span>
+                </a>
+                <a href="https://sanghaklee.tistory.com/73" target="_blank" rel="noopener noreferrer" class="blog-item">
+                    <span class="blog-arrow">→</span>
+                    <span class="blog-title">Ubuntu 18.04(Bionic) Python 3.8 설치</span>
+                </a>
+            </div>
+
+            <div class="blog-more">
+                <a href="https://sanghaklee.tistory.com" target="_blank" rel="noopener noreferrer"
+                    class="btn secondary">글 더
+                    보기 ↗</a>
+            </div>
+        </div>
+    </section>
+    <section id="contact">
+        <div class="section-inner">
+            <div class="section-label">// contact</div>
+            <h2 class="section-title">연락하기</h2>
+            <div class="section-sep"></div>
+
+            <div class="contact-inner">
+                <p>
+                    프로젝트에 대한 피드백, 버그 리포트, 협업 제안이 있으시면 언제든 연락 주세요.
+                    GitHub 이슈를 통한 제보도 환영합니다.
+                </p>
+                <div class="contact-links">
+                    <a href="https://github.com/sanghaklee" target="_blank" rel="noopener noreferrer"
+                        class="btn">GitHub</a>
+                    <a href="mailto:code.ryan.lee@email.com" class="btn secondary">Email</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="footer-links">
+            <a href="/privacy.html">개인정보처리방침</a>
+            <a href="https://github.com/sanghaklee" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ Top</a>
+        </div>
+        <p>© 2010–2026 SangHakLee. All rights reserved.</p>
+    </footer>
 
     <script>
-        // Matrix rain effect
+        // Matrix rain effect (background only)
         const canvas = document.querySelector('.matrix');
         const ctx = canvas.getContext('2d');
 
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
 
         const chars = '01ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz가나다라마바사아자차카타파하ㄱㄴㄷㄹㅁㅂㅅㅇㅈㅊㅋㅌㅍㅎ';
-        const fontSize = 20;
-        const columns = canvas.width / fontSize;
-        const drops = Array(Math.floor(columns)).fill(1);
+        const fontSize = 18;
+        let columns, drops;
+
+        function initDrops() {
+            columns = Math.floor(canvas.width / fontSize);
+            drops = Array(columns).fill(1);
+        }
+        initDrops();
 
         function drawMatrix() {
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.08)';
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.06)';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
-
             ctx.fillStyle = '#00ff00';
             ctx.font = fontSize + 'px monospace';
-
             for (let i = 0; i < drops.length; i++) {
                 const text = chars[Math.floor(Math.random() * chars.length)];
                 ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                    drops[i] = 0;
-                }
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
                 drops[i]++;
             }
         }
 
-        setInterval(drawMatrix, 50);
+        setInterval(drawMatrix, 55);
 
         window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+            resizeCanvas();
+            initDrops();
         });
+
+        // Mobile hamburger toggle
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+        if (navToggle && navLinks) {
+            navToggle.addEventListener('click', () => {
+                const isOpen = navLinks.classList.toggle('open');
+                navToggle.setAttribute('aria-expanded', isOpen);
+                navToggle.textContent = isOpen ? '✕' : '☰';
+            });
+            // Close menu on link click
+            navLinks.querySelectorAll('a').forEach(a => {
+                a.addEventListener('click', () => {
+                    navLinks.classList.remove('open');
+                    navToggle.setAttribute('aria-expanded', 'false');
+                    navToggle.textContent = '☰';
+                });
+            });
+        }
     </script>
 </body>
+
 </html>

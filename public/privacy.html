@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="yessir.dev 개인정보처리방침. Google AdSense 및 Google Analytics 쿠키 정책, 수집 데이터, 사용 목적을 안내합니다.">
+    <meta name="robots" content="index, follow">
+    <meta name="google-adsense-account" content="ca-pub-2062632855078003">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="canonical" href="https://yessir.dev/privacy.html">
+    <title>개인정보처리방침 — yessir.dev</title>
+    <style>
+        :root {
+            --green: #00ff00;
+            --bg: #0a0a0a;
+            --bg-card: #111111;
+            --border: rgba(0, 255, 0, 0.2);
+            --text: #c8c8c8;
+            --text-dim: #808080;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--bg);
+            font-family: 'Courier New', 'Consolas', monospace;
+            color: var(--text);
+            line-height: 1.75;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border);
+            padding: 0.9rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            color: var(--green);
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-back {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 0.88rem;
+            transition: color 0.2s;
+        }
+
+        .nav-back:hover {
+            color: var(--green);
+        }
+
+        .content {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 4rem 2rem 6rem;
+        }
+
+        .page-label {
+            font-size: 0.78rem;
+            letter-spacing: 0.15em;
+            color: var(--green);
+            text-transform: uppercase;
+            margin-bottom: 0.6rem;
+            opacity: 0.8;
+        }
+
+        h1 {
+            font-size: clamp(1.6rem, 4vw, 2.2rem);
+            color: #e8e8e8;
+            margin-bottom: 0.5rem;
+        }
+
+        .updated {
+            font-size: 0.82rem;
+            color: var(--text-dim);
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h2 {
+            font-size: 1.05rem;
+            color: var(--green);
+            margin: 2rem 0 0.7rem;
+            opacity: 0.9;
+        }
+
+        p {
+            font-size: 0.92rem;
+            color: var(--text);
+            margin-bottom: 0.9rem;
+        }
+
+        ul {
+            margin: 0.5rem 0 0.9rem 0;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        ul li {
+            font-size: 0.92rem;
+            color: var(--text);
+            padding: 0.25rem 0;
+        }
+
+        ul li::before {
+            content: '> ';
+            color: var(--green);
+            opacity: 0.6;
+        }
+
+        a {
+            color: var(--green);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .section-sep {
+            width: 40px;
+            height: 2px;
+            background: var(--green);
+            opacity: 0.5;
+            margin-bottom: 1.5rem;
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.8rem;
+            color: var(--text-dim);
+        }
+
+        footer a {
+            color: var(--text-dim);
+        }
+
+        footer a:hover {
+            color: var(--green);
+        }
+
+        @media (max-width: 640px) {
+            .content {
+                padding: 2.5rem 1.2rem 4rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="/" class="nav-logo">&gt; yessir.dev</a>
+        <a href="/" class="nav-back">← 홈으로</a>
+    </nav>
+
+    <main class="content">
+        <div class="page-label">// legal</div>
+        <h1>개인정보처리방침</h1>
+        <div class="section-sep"></div>
+        <p class="updated">최종 업데이트: 2026년 2월 20일</p>
+
+        <p>
+            본 개인정보처리방침은 <strong>yessir.dev</strong> 및 하위 도메인(<code>iptables.yessir.dev</code>,
+            <code>poll.yessir.dev</code>,
+            <code>makeup-web.yessir.dev</code>, <code>well-known.yessir.dev</code> 등)에서
+            수집하는 정보와 그 사용 방식을 설명합니다.
+        </p>
+
+        <h2>1. 수집하는 정보</h2>
+        <p>저희는 서비스 개선과 광고 게재를 위해 아래와 같은 정보를 수집합니다.</p>
+        <ul>
+            <li>방문 페이지 URL, 브라우저 종류, 운영체제, 언어 설정</li>
+            <li>방문 일시, 세션 시간, 이전 방문 페이지(Referrer)</li>
+            <li>대략적인 지리적 위치 (국가/도시 수준, IP 기반)</li>
+            <li>쿠키 및 유사 추적 기술을 통해 수집되는 광고 관련 데이터</li>
+        </ul>
+        <p>
+            회원가입이나 로그인 기능이 없으므로 이름, 이메일, 주민등록번호 등
+            개인 식별 가능 정보(PII)는 수집하지 않습니다.
+        </p>
+
+        <h2>2. 쿠키(Cookie) 사용</h2>
+        <p>
+            저희 사이트는 <strong>Google Analytics</strong>와 <strong>Google AdSense</strong>를 통해 쿠키를 사용합니다.
+            쿠키는 방문 통계 수집 및 맞춤형 광고 게재에 사용됩니다.
+            브라우저 설정에서 쿠키를 거부하거나 삭제할 수 있으나, 일부 서비스 기능이 제한될 수 있습니다.
+        </p>
+
+        <h2>3. Google Analytics</h2>
+        <p>
+            Google Analytics는 사이트 트래픽 및 사용자 행동 분석을 위해 사용됩니다.
+            수집된 데이터는 Google의 서버에 저장되며 익명으로 처리됩니다.
+            Google Analytics 데이터 수집 거부를 원하시면
+            <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">Google
+                Analytics 옵트아웃 브라우저 부가기능</a>을 설치하세요.
+        </p>
+
+        <h2>4. Google AdSense (광고)</h2>
+        <p>
+            저희 사이트는 <strong>Google AdSense</strong>를 통해 광고를 게재합니다.
+            Google은 사용자의 관심사와 이전 방문 기록에 기반한 맞춤 광고를 표시할 수 있습니다.
+            Google의 광고 쿠키 사용 설정은
+            <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer">Google 광고 설정</a>에서
+            변경할 수 있습니다.
+        </p>
+        <ul>
+            <li>AdSense 게시자 ID: <code>ca-pub-2062632855078003</code></li>
+            <li>Google의 개인정보처리방침: <a href="https://policies.google.com/privacy" target="_blank"
+                    rel="noopener noreferrer">policies.google.com/privacy</a></li>
+        </ul>
+
+        <h2>5. 제3자 서비스</h2>
+        <p>저희 사이트는 아래 제3자 서비스를 이용하며, 각 서비스의 개인정보처리방침을 따릅니다.</p>
+        <ul>
+            <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Analytics
+                    — 방문 통계 수집</a></li>
+            <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google AdSense —
+                    광고 게재</a></li>
+            <li><a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement"
+                    target="_blank" rel="noopener noreferrer">GitHub Pages — 사이트 호스팅</a></li>
+        </ul>
+
+        <h2>6. 데이터 보관 및 보안</h2>
+        <p>
+            저희가 직접 수집하는 데이터는 없으며, 모든 분석 및 광고 데이터는 Google의 인프라에서 관리됩니다.
+            Google의 보안 정책 및 데이터 보관 기간은 Google 개인정보처리방침을 참조하세요.
+        </p>
+
+        <h2>7. 미성년자 보호</h2>
+        <p>
+            저희 서비스는 만 14세 미만 아동을 대상으로 하지 않으며,
+            아동의 개인정보를 의도적으로 수집하지 않습니다.
+        </p>
+
+        <h2>8. 방침 변경</h2>
+        <p>
+            본 개인정보처리방침은 법률 또는 서비스 변경에 따라 업데이트될 수 있습니다.
+            변경 시 이 페이지의 "최종 업데이트" 날짜를 수정합니다.
+            주기적으로 확인해 주시기 바랍니다.
+        </p>
+
+        <h2>9. 문의</h2>
+        <p>
+            개인정보 관련 문의는 아래 이메일로 연락해 주세요:<br>
+            <a href="mailto:code.ryan.lee@email.com">code.ryan.lee@email.com</a>
+        </p>
+    </main>
+
+    <footer>
+        <p><a href="/">← yessir.dev 홈으로</a> &nbsp;|&nbsp; © 2026 SangHak Lee</p>
+    </footer>
+</body>
+
+</html>
